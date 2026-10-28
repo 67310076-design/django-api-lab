@@ -1,0 +1,319 @@
+
+{% extends "rest_framework/base.html" %}
+
+{% block title %}INITIAL D | PRODUCT GARAGE{% endblock %}
+
+{% block branding %}
+<a class="navbar-brand initiald-brand" href="/api/products/">
+  INITIAL <span>D</span> <small>PRODUCT GARAGE</small>
+</a>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="initiald-hero">
+  <div class="initiald-inner">
+    <div class="racing-label">PROJECT D / PRODUCT MANAGEMENT</div>
+    <h1>PRODUCT <span>GARAGE</span></h1>
+    <p>MANAGE YOUR INVENTORY. DRIVE YOUR PROJECT.</p>
+
+    <div class="initiald-cars">
+      <div class="initiald-car">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/InitialD_AE86TRUENO_Takumi_Fujiwara.JPG"
+          alt="Initial D Toyota AE86"
+        >
+        <div class="car-caption">
+          <strong>AE86 TRUENO</strong>
+          <span>TOFU DELIVERY</span>
+        </div>
+      </div>
+
+      <div class="initiald-car">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/InitialD_FD3S_Keisuke_Takahashi.JPG"
+          alt="Initial D Mazda RX-7 FD3S"
+        >
+        <div class="car-caption">
+          <strong>RX-7 FD3S</strong>
+          <span>PROJECT D</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="racing-stripe"></div>
+    <div class="hero-bottom">
+      <span>01 / INVENTORY SYSTEM</span>
+      <span>INITIAL D INSPIRED API</span>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block style %}
+{{ block.super }}
+<style>
+:root {
+  --id-yellow: #ffd400;
+  --id-black: #101010;
+  --id-panel: #1c1c1c;
+}
+
+body {
+  background: var(--id-black) !important;
+  color: #f5f5f5 !important;
+  font-family: "Arial", "Tahoma", sans-serif !important;
+}
+
+.navbar-inverse {
+  background: #090909 !important;
+  border-bottom: 3px solid var(--id-yellow) !important;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #f5f5f5 !important;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: var(--id-yellow) !important;
+}
+
+.initiald-brand {
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+}
+
+.initiald-brand span {
+  color: var(--id-yellow);
+  font-style: italic;
+}
+
+.initiald-brand small {
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-left: 8px;
+}
+
+.initiald-hero {
+  background:
+    linear-gradient(110deg, #111 0%, #202020 60%, #111 100%);
+  border-bottom: 1px solid #393939;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.initiald-inner {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 30px 20px 20px;
+}
+
+.racing-label {
+  color: var(--id-yellow);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.initiald-hero h1 {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+  margin: 12px 0;
+}
+
+.initiald-hero h1 span {
+  color: var(--id-yellow);
+}
+
+.initiald-hero p {
+  color: #bbb;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.initiald-cars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.initiald-car {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #292929;
+  border: 1px solid #454545;
+}
+
+.initiald-car img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .35s;
+}
+
+.initiald-car:hover img {
+  transform: scale(1.05);
+}
+
+.car-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 15px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,.95));
+  display: flex;
+  flex-direction: column;
+}
+
+.car-caption strong {
+  font-size: 19px;
+  color: white;
+  font-style: italic;
+}
+
+.car-caption span {
+  color: var(--id-yellow);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.racing-stripe {
+  height: 7px;
+  margin-top: 22px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--id-yellow) 0 12px,
+    #111 12px 24px
+  );
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* API content panels */
+.container {
+  color: #eee;
+}
+
+.breadcrumb {
+  background: #191919 !important;
+  border: 1px solid #333;
+  border-radius: 3px !important;
+}
+
+.breadcrumb a {
+  color: var(--id-yellow) !important;
+}
+
+h1, h2, h3, h4 {
+  color: #f5f5f5;
+}
+
+.page-header {
+  border-color: #383838 !important;
+}
+
+.well {
+  background: #1b1b1b !important;
+  border: 1px solid #383838 !important;
+  border-radius: 5px !important;
+  color: #eee !important;
+  box-shadow: none !important;
+}
+
+pre, code, .response-info {
+  background: #101010 !important;
+  color: #e7e7e7 !important;
+  border-color: #383838 !important;
+}
+
+.table, .table-striped > tbody > tr:nth-of-type(odd) {
+  color: #eee;
+  background: #191919;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  border-color: #393939 !important;
+}
+
+.form-control {
+  background: #101010 !important;
+  color: white !important;
+  border: 1px solid #555 !important;
+  border-radius: 3px !important;
+}
+
+.form-control:focus {
+  border-color: var(--id-yellow) !important;
+  box-shadow: 0 0 5px rgba(255,212,0,.25) !important;
+}
+
+.btn, .btn-default {
+  background: #292929 !important;
+  color: white !important;
+  border: 1px solid #555 !important;
+}
+
+.btn-primary, .btn-success {
+  background: var(--id-yellow) !important;
+  color: #111 !important;
+  border-color: var(--id-yellow) !important;
+  font-weight: bold;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+}
+
+a {
+  color: var(--id-yellow);
+}
+
+a:hover {
+  color: #fff;
+}
+
+footer {
+  color: #999;
+  border-top: 1px solid #333;
+}
+
+@media (max-width: 600px) {
+  .initiald-inner {
+    padding: 24px 14px;
+  }
+
+  .initiald-cars {
+    grid-template-columns: 1fr;
+  }
+
+  .initiald-car {
+    height: 190px;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+  }
+
+  .initiald-brand small {
+    display: none;
+  }
+}
+</style>
+{% endblock %}
